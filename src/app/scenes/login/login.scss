@@ -1,0 +1,18 @@
+.main-wrapper {
+    display: grid;
+    justify-content: center;
+    margin-top: var(--very-large-spacing);
+    gap: var(--large-spacing);
+
+    .login-input-wrapper {
+        display: grid;
+        flex-direction: column;
+        gap: var(--large-spacing);
+
+        .login {
+            margin-left: var(--very-large-spacing);
+            margin-right: var(--very-large-spacing);
+        }
+    }
+
+}
