@@ -8,15 +8,6 @@ import PageNotFoundView from './app/scenes/pageNotFound/pageNotFound.view'
 const Login = (lazy(() => import ('./app/scenes/login/login.view'))) 
 // import LoginView from './scenes/auth/Login.view';
 
-// Lazy load the component with a delay
-const DelayedComponent = lazy(() => {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(import( './component'));
-    }, 3000); // Delay in milliseconds, e.g., 3000ms = 3 seconds
-  });
-});
-
 function App() {
   return (
     <div>
