@@ -1,0 +1,31 @@
+.main-wrapper {
+    display: grid;
+    justify-content: center;
+
+    .current-status-title {
+        margin-top: var(--large-spacing);
+    }
+
+    .update-status-title {
+        margin-top: var(--very-large-spacing);
+    }
+    
+    .update-status-dropdown {
+        margin-top: var(--large-spacing);
+        // select {
+        //     width: 95%;
+        // }
+    }
+
+    hr {
+        margin-top: var(--large-spacing);
+    }
+
+    .employee-status {
+        margin-top: var(--large-spacing);
+    }
+    // p {
+    //     margin-block-start: 0;
+    //     margin-block-end: 0;
+    // }
+}

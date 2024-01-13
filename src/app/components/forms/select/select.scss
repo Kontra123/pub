@@ -1,0 +1,14 @@
+.select-wrapper {
+    // vertical-align: top;
+    height: 100%;
+
+    select {
+        width: 200px;
+        vertical-align: top;
+        height: 100%;
+
+        &:focus {
+            outline: 2px solid rgb(12, 12, 12); 
+        }
+    }
+}

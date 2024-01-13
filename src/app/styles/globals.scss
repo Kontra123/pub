@@ -1,3 +1,10 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+
 h1 {
   font-size: var(--large-font-size); 
 }
@@ -10,6 +17,17 @@ h3 {
     font-size: var(--base-font-size) 
 }
 
-button {
-    
+p {
+  margin-block-start: 5px;
+  margin-block-end: 5px;
+  display: block;
+  width: 100%;
+}
+
+.separator {
+  border: none; 
+  height: 2px; 
+  background-color: var(--seperator);
+  margin: var(--base-spacing) 0;
+  // width: 40vh;
 }

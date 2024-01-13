@@ -1,0 +1,40 @@
+// breakpoints
+$xs: 0;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+@mixin responsive-until($width) {
+  @media screen and (max-width: #{$width - 1px}) {
+    @content;
+  }
+}
+
+@mixin responsive-from($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+// < 991px
+@mixin tablet {
+  @include responsive-until($lg) {
+    @content;
+  }
+}
+
+// < 575px
+@mixin mobile {
+  @include responsive-until($sm) {
+    @content;
+  }
+}
+
+@mixin text-overflow($max-width: none) {
+  max-width: $max-width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

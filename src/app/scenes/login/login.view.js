@@ -1,20 +1,44 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import './login.scss'
+import { registeredUsers } from '../../constants/mockdata'
 
 const Login = () => {
+
+    const navigate = useNavigate();
 
     const [inputValues, setInputValues] = useState({
         userName: '',
         password: ''
     });
+    const [errorMessage, setErrorMessage] = useState(null)
 
-    const handleInputChange = (e) => {
+    const handleInputChange = e => {
         const { name, value } = e.target
         setInputValues(prev => ({
             ...prev,
             [name]: value
         }))
     };
+
+    const handleLogin = e => {
+        const user = registeredUsers.find(item =>
+            item.userName === inputValues.userName &&
+            item.password === inputValues.password
+        );
+
+        if (user) {
+            setErrorMessage('')
+            navigate('/home');
+        }
+        else {
+            setErrorMessage('Something went wrong')
+        }
+    }
+
+    const isLoginButtonDisabled = () => {
+        return !inputValues.userName || !inputValues.password
+    }
 
     return (
         <div className='main-wrapper'>
@@ -35,9 +59,17 @@ const Login = () => {
                     placeholder="Password"
                 />
 
-                <button className='login'>
+                <button
+                    className='login'
+                    onClick={handleLogin}
+                    disabled={isLoginButtonDisabled()}>
                     Login
                 </button>
+
+                {errorMessage && <p className='error-validation'>
+                    {errorMessage}
+                </p>}
+
             </div>
         </div>
     )
