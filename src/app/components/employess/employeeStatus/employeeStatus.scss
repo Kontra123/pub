@@ -1,23 +1,11 @@
 .employee-status-wrapper {
-    // display: flex;
-    // display: grid;
-    // border-top: 2px solid #0a0a0a; // Example: 1px solid border with a light gray color
-    // border-left: 2px solid #0a0a0a; 
-    // border-right: 2px solid #0a0a0a; 
-    // padding: 5px; // Adds space inside the border
-
-    // &:last-child {
-    //     border-bottom: 2px solid #0a0a0a; 
-    // }
 
     .list-of-employess-filter {
         display: flex;
-        // margin-top: var(--large-spacing);
 
         .list-of-employess-dropdown {
             margin-left: var(--large-spacing);
         }
-        // gap: 20px;
     }
 
     .employee-status-list {
@@ -33,11 +21,32 @@
             &:last-child {
                 border-bottom: 2px solid #0a0a0a; 
             }
-    
+
             .status {
                 margin-left: var(--base-spacing);
             }
         }
+    }
+
+    .employee-status-list-table {
+
+        margin-top: var(--large-spacing);
+        width: 100%;
+        border-collapse: collapse;
+
+        .user {
+            cursor: pointer;
+        }
+        
+        th, td {
+            border: 1px solid var(--table-header);
+            padding: var(--base-spacing);
+        }
+        
+        th {
+            background-color: var(--table-vody);
+            text-align: left;
+        } 
     }
 
 }

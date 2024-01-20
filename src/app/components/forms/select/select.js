@@ -8,7 +8,7 @@ const Dropdown = ({ data, defaultValue, onSelect }) => {
   const handleDropdownChange = (event) => {
     const { selectedIndex, value} = event.target
     setSelectedOption(value);
-    onSelect(options[selectedIndex]);
+    onSelect && onSelect(options[selectedIndex]);
   };
 
   const options = useMemo(() => {

@@ -32,10 +32,10 @@ const EmployeeStatus = () => {
         if (selectedStatus?.id !== -1) {
             filteredList = filteredList.filter(item => item.statusId === selectedStatus.id);
         }
-    
+
         setFilterEmployessList(filteredList)
 
-    },[inputValues.searchByName, selectedStatus])
+    }, [inputValues.searchByName, selectedStatus])
 
 
     const EmployeeStatusItem = ({ userName, statusId }) => {
@@ -45,6 +45,17 @@ const EmployeeStatus = () => {
                 <label className='user'>{userName}</label>
                 <label className='status'>({status.value.toLowerCase()})</label>
             </div>
+        );
+    };
+
+    
+    const EmployeeStatusItemTable = ({ userName, statusId }) => {
+        const status = currentStatus.find(item => item.id === statusId);
+        return (
+            <tr className='employee-status-item'>
+                <td className='user' onClick={() => alert(userName)}>{userName}</td>
+                <td className='status'>{status.value}</td>
+            </tr>
         );
     };
 
@@ -65,9 +76,23 @@ const EmployeeStatus = () => {
             </div>
             <div className='employee-status-list'>
                 {filterEmployessList.map((item, index) => (
-                    <EmployeeStatusItem key={index} userName={item.userName} statusId={item.statusId}/>
+                    <EmployeeStatusItem key={index} userName={item.userName} statusId={item.statusId} />
                 ))}
             </div>
+
+            <table className='employee-status-list-table'>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {filterEmployessList.map((item, index) => (
+                        <EmployeeStatusItemTable key={index} userName={item.userName} statusId={item.statusId} />
+                    ))}
+                </tbody>
+            </table>
         </div>
     )
 

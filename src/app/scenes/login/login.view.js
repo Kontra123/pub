@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import './login.scss'
-import { registeredUsers } from '../../constants/mockdata'
+// import { registeredUsers } from '../../constants/mockdata'
+import fetchService from '../../../services/fetch.service';
 
 const Login = () => {
 
@@ -21,13 +22,14 @@ const Login = () => {
         }))
     };
 
-    const handleLogin = e => {
-        const user = registeredUsers.find(item =>
-            item.userName === inputValues.userName &&
-            item.password === inputValues.password
-        );
+    const handleLogin = async e => {
 
-        if (user) {
+        const response = await fetchService.post('login', {
+            userName: 'amir',
+            password: 'test'
+        })
+
+        if (response.statusCode === 200) {
             setErrorMessage('')
             navigate('/home');
         }
@@ -41,7 +43,7 @@ const Login = () => {
     }
 
     return (
-        <div className='main-wrapper'>
+        <div className='login-main-wrapper'>
             <h3>Welcome to my world</h3>
             <div className='login-input-wrapper'>
                 <input
